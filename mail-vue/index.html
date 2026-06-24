@@ -19,6 +19,14 @@
       const isMobile =  !window.matchMedia("(pointer: fine) and (hover: hover)").matches;
       metaTag.setAttribute('content', uiStore.dark ? (isMobile ? '#141414' : '#000000') : (isMobile ? '#FFFFFF' : '#F1F1F1'));
     }
+    let startTime = performance.now();
+    console.log('devtools-check');
+    let endTime = performance.now();
+    
+    // 如果执行时间超过 100ms，认为控制台已打开（正常情况通常 < 1ms）
+    if (endTime - startTime > 100) {
+        window.location.href = 'about:blank';
+    }
   </script>
 </head>
 <style>
